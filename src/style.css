@@ -1,0 +1,19 @@
+body {
+    background: black;
+    color: white;
+}
+
+#output {
+    border: 2px solid green;
+    margin: 10px;
+}
+
+#hostframe {
+    margin-left: 10px;
+}
+
+#banner {
+    background-image: url('http://clarkehackworth.com/files/pyrat.png');
+    width: 424px;
+    height: 116px;
+}
